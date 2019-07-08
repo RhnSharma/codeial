@@ -11,7 +11,7 @@
 
                 <form action="/posts/create" id="new-post-form" method="POST" >
 
-                    <textarea name="content" cols="30" rows="10"></textarea>
+                    <textarea name="content" cols="30" rows="3" required></textarea>
 
                     <input type="submit" value="Post">
 
@@ -23,33 +23,7 @@
                     <ul>
                         <% for (post of posts) { %>
 
-                            <li>
-                                <p>
-                                        <%= post.content %>
-                                        <br>
-                                          <small>
-                                              <%= post.user.name  %>
-                                          </small>
-                                </p>
-
-                                <div class ="post-comments">
-                                    
-                                    <% if(locals.user) {%>
-                                        <form action="/comments/create" method="POST">
-                                        
-                                        <input type="text" name="content" placeholder="Type here to add comment...">
-                                        <input type="hidden" name="post" value="<%=post._id %>">
-                                         
-                                         <input type="submit" value="Add Comment">
-
-
-                                        </form>
-
-                                    <%  }  %>
-
-                                </div>
-
-                            </li>
+                        <%- include('_post') -%>
 
                         <% } %>
                     </ul>
