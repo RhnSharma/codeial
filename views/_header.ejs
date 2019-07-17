@@ -10,9 +10,9 @@
             <% if (locals.user){%>
                    
               <li>
-                  <button>
-                      <a href="/users/profile"><%= user.name %></a>
-                    </button>    
+                  
+                      <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+                       
               </li>
               <li>
                   <a href="/users/sign-out">Sign Out</a>
